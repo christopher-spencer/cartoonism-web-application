@@ -1,3 +1,3 @@
 # Portfolio Project
 ​
-start for portfolio project
+starter for portfolio project
