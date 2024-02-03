@@ -24,7 +24,9 @@ public class JdbcBlogPostDao implements BlogPostDao {
                 "FROM blogposts WHERE blogpost_id = 1";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, blogPostId);
-
+            if (results.next()) {
+                blogPost = mapRowToBlogPost(results);
+            }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database.", e);
         }
