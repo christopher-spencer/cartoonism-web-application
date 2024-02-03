@@ -10,4 +10,4 @@ WHERE datname = 'cartoonism';
 DROP DATABASE cartoonism;
 
 DROP USER cartoonism_owner;
-DROP USER cartoonsim_appuser;
+DROP USER cartoonism_appuser;
