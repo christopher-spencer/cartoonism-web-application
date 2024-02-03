@@ -5,9 +5,11 @@ import com.techelevator.model.BlogPost;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 
+@Component
 public class JdbcBlogPostDao implements BlogPostDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -21,7 +23,7 @@ public class JdbcBlogPostDao implements BlogPostDao {
         BlogPost blogPost = null;
         String sql = "SELECT blogpost_id, blogpost_name, blogpost_author, blogpost_description, post_date, blogpost_content, " +
                 "image_name, image_url, created_at, updated_at " +
-                "FROM blogposts WHERE blogpost_id = 1";
+                "FROM blogposts WHERE blogpost_id = ?";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, blogPostId);
             if (results.next()) {
