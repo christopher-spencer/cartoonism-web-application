@@ -30,4 +30,21 @@ public class JdbcBlogPostDao implements BlogPostDao {
         }
         return blogPost;
     }
+
+    private BlogPost mapRowToBlogPost(SqlRowSet rs) {
+        BlogPost blogPost = new BlogPost();
+
+        blogPost.setBlogPostId(rs.getInt("blogpost_id"));
+        blogPost.setBlogPostName(rs.getString("blogpost_name"));
+        blogPost.setBlogPostAuthor(rs.getString("blogpost_author"));
+        blogPost.setBlogPostDescription(rs.getString("blogpost_description"));
+        blogPost.setPostDate(rs.getDate("post_date"));
+        blogPost.setBlogPostContent(rs.getString("blogpost_content"));
+        blogPost.setImageName(rs.getString("image_name"));
+        blogPost.setImageUrl(rs.getString("image_url"));
+        blogPost.setCreatedAt(rs.getDate("created_at"));
+        blogPost.setUpdatedAt(rs.getDate("updated_at"));
+
+        return blogPost;
+    }
 }

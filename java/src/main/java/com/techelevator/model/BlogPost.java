@@ -17,6 +17,11 @@ public class BlogPost {
     private Date createdAt;
     private Date updatedAt;
 
+    //TODO check out why you just use empty constructor, prob b/c you're setting it up in JdbcBPDao
+    public BlogPost() {
+
+    }
+
     public BlogPost(int blogPostId, String blogPostName, String blogPostAuthor, String blogPostDescription,
                     Date postDate, String blogPostContent, String imageName, String imageUrl, Date createdAt, Date updatedAt) {
         this.blogPostId = blogPostId;
