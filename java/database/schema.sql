@@ -20,7 +20,8 @@ CREATE TABLE blogposts (
 	blogpost_content varchar(5000),
 	image_name varchar(50),
 	image_url varchar(512),
-	upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	CONSTRAINT PK_blogpost PRIMARY KEY (blogpost_id)
 );
 
