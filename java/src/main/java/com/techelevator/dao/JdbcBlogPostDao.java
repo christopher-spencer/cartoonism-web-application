@@ -1,4 +1,4 @@
 package com.techelevator.dao;
 
-public interface BlogDao {
+public class JdbcBlogPostDao {
 }

@@ -1,4 +1,4 @@
 package com.techelevator.controller;
 
-public class PublicationController {
+public class BlogPostController {
 }

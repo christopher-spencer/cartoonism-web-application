@@ -1,4 +1,4 @@
 package com.techelevator.model;
 
-public class Collection {
+public class BlogPost {
 }
