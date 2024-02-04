@@ -34,7 +34,7 @@ public class JdbcBlogPostDao implements BlogPostDao {
             BlogPost blogPost = mapRowToBlogPost(results);
             blogPosts.add(blogPost);
         }
-        
+
         return blogPosts;
     }
 
