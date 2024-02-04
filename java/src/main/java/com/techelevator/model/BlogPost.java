@@ -14,6 +14,8 @@ public class BlogPost {
     private String blogPostContent;
     private String imageName;
     private String imageUrl;
+    //TODO these fields aren't auto filling in Postman even though using
+    // TIMESTAMP DEFAULT CURRENT_TIMESTAMP value in schema, check into this
     private Date createdAt;
     private Date updatedAt;
 
