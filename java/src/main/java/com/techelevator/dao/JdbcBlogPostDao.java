@@ -14,6 +14,8 @@ public class JdbcBlogPostDao implements BlogPostDao {
 
     private JdbcTemplate jdbcTemplate;
 
+    //TODO could be cool to add video blog option eventually as well
+
     //TODO Update the DataSource name to cartoonism for this project?
     public JdbcBlogPostDao(DataSource final_capstone) {
         this.jdbcTemplate = new JdbcTemplate(final_capstone);
