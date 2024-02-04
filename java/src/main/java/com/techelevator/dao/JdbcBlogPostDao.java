@@ -63,13 +63,15 @@ public class JdbcBlogPostDao implements BlogPostDao {
                 "RETURNING blogpost_id;";
 
         try {
-            Integer newBlogPostId = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
+            Integer newBlogPostIdWrapper = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
                     blogPost.getBlogPostDescription(), blogPost.getPostDate(), blogPost.getBlogPostContent(), blogPost.getImageName(),
                     blogPost.getImageUrl(), blogPost.getCreatedAt(), blogPost.getUpdatedAt());
 
-            if (newBlogPostId != null) {
-                int newBlogPostIdValue = newBlogPostId;
-                newBlogPost = getBlogPostById(newBlogPostIdValue);
+            if (newBlogPostIdWrapper != null) {
+                int newBlogPostId = newBlogPostIdWrapper;
+                newBlogPost = getBlogPostById(newBlogPostId);
+            } else {
+                System.out.println("The query returned a null value for newBlogPostIdWrapper. Handle appropriately.");
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
