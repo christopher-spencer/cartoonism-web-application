@@ -63,6 +63,9 @@ public class JdbcBlogPostDao implements BlogPostDao {
                 "RETURNING blogpost_id;";
 
         try {
+            // In Java, primitive types are not nullable, meaning they cannot have a null value.
+            // However, objects, including instances of wrapper classes like Integer, can be null.
+            // Used Wrapper first, then unboxed it after checking if it's null to avoid NullPointerException
             Integer newBlogPostIdWrapper = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
                     blogPost.getBlogPostDescription(), blogPost.getPostDate(), blogPost.getBlogPostContent(), blogPost.getImageName(),
                     blogPost.getImageUrl(), blogPost.getCreatedAt(), blogPost.getUpdatedAt());
