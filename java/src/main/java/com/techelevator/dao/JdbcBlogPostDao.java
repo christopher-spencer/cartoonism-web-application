@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.BlogPost;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -52,6 +53,31 @@ public class JdbcBlogPostDao implements BlogPostDao {
             throw new DaoException("Unable to connect to server or database.", e);
         }
         return blogPost;
+    }
+
+    public BlogPost addBlogPost(BlogPost blogPost) {
+        BlogPost newBlogPost = null;
+        String sql = "INSERT into blogposts (blogpost_name, blogpost_author, blogpost_description, post_date, blogpost_content, " +
+                "image_name, image_url, created_at, updated_at) " +
+                "VALUES (?,?,?,?,?,?,?,?,?) " +
+                "RETURNING blogpost_id;";
+
+        try {
+            Integer newBlogPostId = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
+                    blogPost.getBlogPostDescription(), blogPost.getPostDate(), blogPost.getBlogPostContent(), blogPost.getImageName(),
+                    blogPost.getImageUrl(), blogPost.getCreatedAt(), blogPost.getUpdatedAt());
+
+            if (newBlogPostId != null) {
+                int newBlogPostIdValue = newBlogPostId;
+                newBlogPost = getBlogPostById(newBlogPostIdValue);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data Integrity Violation", e);
+        }
+
+        return newBlogPost;
     }
 
     private BlogPost mapRowToBlogPost(SqlRowSet rs) {
