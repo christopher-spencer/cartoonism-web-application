@@ -8,6 +8,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class JdbcBlogPostDao implements BlogPostDao {
@@ -19,6 +21,21 @@ public class JdbcBlogPostDao implements BlogPostDao {
     //TODO Update the DataSource name to cartoonism for this project?
     public JdbcBlogPostDao(DataSource final_capstone) {
         this.jdbcTemplate = new JdbcTemplate(final_capstone);
+    }
+
+    public List<BlogPost> getBlogPosts() {
+        List<BlogPost> blogPosts = new ArrayList<>();
+        String sql = "SELECT blogpost_id, blogpost_name, blogpost_author, blogpost_description, post_date, blogpost_content, " +
+                "image_name, image_url, created_at, updated_at " +
+                "FROM blogposts;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            BlogPost blogPost = mapRowToBlogPost(results);
+            blogPosts.add(blogPost);
+        }
+        
+        return blogPosts;
     }
 
     public BlogPost getBlogPostById(int blogPostId) {
