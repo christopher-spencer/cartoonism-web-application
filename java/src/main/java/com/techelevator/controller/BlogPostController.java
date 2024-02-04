@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BlogPostDao;
 import com.techelevator.model.BlogPost;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,5 +29,11 @@ public class BlogPostController {
     public BlogPost getBlogPost(@PathVariable int blogPostId) {
         BlogPost blogPost = blogPostDao.getBlogPostById(blogPostId);
         return blogPost;
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(path="/blogpost/create-blogpost")
+    public BlogPost addBlogPost(@RequestBody BlogPost blogPost) {
+        return blogPostDao.addBlogPost(blogPost);
     }
 }
