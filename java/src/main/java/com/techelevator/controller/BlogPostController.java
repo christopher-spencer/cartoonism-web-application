@@ -5,6 +5,8 @@ import com.techelevator.model.BlogPost;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 //@PreAuthorize("isAuthenticated()")
@@ -14,6 +16,12 @@ public class BlogPostController {
 
     public BlogPostController(BlogPostDao blogPostDao) {
         this.blogPostDao = blogPostDao;
+    }
+
+    //Annotation option besides @RequestMapping
+    @GetMapping(path="/blogposts")
+    public List<BlogPost> getBlogPosts() {
+        return blogPostDao.getBlogPosts();
     }
 
     @RequestMapping (path = "/blogposts/{blogPostId}", method = RequestMethod.GET)
