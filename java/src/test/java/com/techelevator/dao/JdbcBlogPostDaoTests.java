@@ -63,4 +63,14 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
         Assert.assertNotNull(blogPosts);
         Assert.assertFalse(blogPosts.isEmpty());
     }
+
+    @Test
+    public void addBlogPost_creates_a_new_blogpost() {
+        BlogPost blogPost = new BlogPost();
+        blogPost.setBlogPostName("Test Blog Post");
+
+        BlogPost createdBlogPost = sut.addBlogPost(blogPost);
+
+        Assert.assertNotNull(createdBlogPost);
+    }
 }
