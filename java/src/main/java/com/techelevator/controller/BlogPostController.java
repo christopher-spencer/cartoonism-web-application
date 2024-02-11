@@ -3,7 +3,10 @@ package com.techelevator.controller;
 import com.techelevator.dao.BlogPostDao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.BlogPost;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -47,7 +50,11 @@ public class BlogPostController {
             BlogPost updatedBlogPost = blogPostDao.updateBlogPost(blogPost);
             return updatedBlogPost;
         } catch (DaoException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Blog post not found.");
+            if (e.getMessage().equals("Zero rows affected, expected at least one update.")) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Blog post not found.");
+            } else {
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to update blog post.", e);
+            }
         }
     }
 
