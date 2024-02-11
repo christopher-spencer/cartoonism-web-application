@@ -14,7 +14,9 @@ export default {
         return axios.post('/blogpost/create-blogpost');
     },
 
-    
+    updateBlogPost(blogPost, blogPostId) {
+        return axios.put('/update-blogpost/${blogPost.blogPostId}', blogPost);
+    }
 
 
 

@@ -42,7 +42,7 @@ public class BlogPostController {
         return blogPostDao.addBlogPost(blogPost);
     }
 
-    @PutMapping(path="/updateblogpost/{blogPostId}")
+    @PutMapping(path="/update-blogpost/{blogPostId}")
     public BlogPost updateBlogPost(@RequestBody BlogPost blogPost, @PathVariable int blogPostId) {
         blogPost.setBlogPostId(blogPostId);
 
