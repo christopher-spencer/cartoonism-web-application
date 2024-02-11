@@ -2,7 +2,7 @@
     <div class="blog-posts">
         <h1>Blog Posts Component</h1>
         <p v-for="(blogPost, index) in blogPosts" :key="index">
-            Greetings from {{blogPost.blogPostName}}!!!
+            Greetings from {{blogPost.name}}!!!
         </p>
     </div>
 </template>

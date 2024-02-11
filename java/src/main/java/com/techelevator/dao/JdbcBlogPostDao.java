@@ -9,7 +9,6 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,14 +63,14 @@ public class JdbcBlogPostDao implements BlogPostDao {
                 "RETURNING blogpost_id;";
 
         try {
-            if (blogPost.getBlogPostName() == null) {
+            if (blogPost.getName() == null) {
                 throw new IllegalArgumentException("Blog post name cannot be null");
             }
             // In Java, primitive types are not nullable, meaning they cannot have a null value.
             // However, objects, including instances of wrapper classes like Integer, can be null.
             // Used Wrapper first, then unboxed it after checking if it's null to avoid NullPointerException
-            Integer newBlogPostIdWrapper = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(),
-                    blogPost.getBlogPostAuthor(), blogPost.getBlogPostDescription(), blogPost.getBlogPostContent(),
+            Integer newBlogPostIdWrapper = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getName(),
+                    blogPost.getAuthor(), blogPost.getDescription(), blogPost.getContent(),
                     blogPost.getImageName(), blogPost.getImageUrl());
 
             if (newBlogPostIdWrapper != null) {
@@ -100,14 +99,14 @@ public class JdbcBlogPostDao implements BlogPostDao {
                 "WHERE blogpost_id = ?;";
 
         try {
-            int numberOfRows = jdbcTemplate.update(sql, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
-                    blogPost.getBlogPostDescription(), blogPost.getBlogPostContent(), blogPost.getImageName(),
-                    blogPost.getImageUrl(), blogPost.getBlogPostId());
+            int numberOfRows = jdbcTemplate.update(sql, blogPost.getName(), blogPost.getAuthor(),
+                    blogPost.getDescription(), blogPost.getContent(), blogPost.getImageName(),
+                    blogPost.getImageUrl(), blogPost.getId());
 
             if (numberOfRows == 0) {
                 throw new DaoException("Zero rows affected, expected at least one update.");
             } else {
-                updatedBlogPost = getBlogPostById(blogPost.getBlogPostId());
+                updatedBlogPost = getBlogPostById(blogPost.getId());
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database.", e);
@@ -134,11 +133,11 @@ public class JdbcBlogPostDao implements BlogPostDao {
     private BlogPost mapRowToBlogPost(SqlRowSet rs) {
         BlogPost blogPost = new BlogPost();
 
-        blogPost.setBlogPostId(rs.getInt("blogpost_id"));
-        blogPost.setBlogPostName(rs.getString("blogpost_name"));
-        blogPost.setBlogPostAuthor(rs.getString("blogpost_author"));
-        blogPost.setBlogPostDescription(rs.getString("blogpost_description"));
-        blogPost.setBlogPostContent(rs.getString("blogpost_content"));
+        blogPost.setId(rs.getInt("blogpost_id"));
+        blogPost.setName(rs.getString("blogpost_name"));
+        blogPost.setAuthor(rs.getString("blogpost_author"));
+        blogPost.setDescription(rs.getString("blogpost_description"));
+        blogPost.setContent(rs.getString("blogpost_content"));
         blogPost.setImageName(rs.getString("image_name"));
         blogPost.setImageUrl(rs.getString("image_url"));
         blogPost.setCreatedAt(rs.getDate("created_at"));

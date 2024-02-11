@@ -1,17 +1,15 @@
 package com.techelevator.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class BlogPost {
-    //TODO update your variable names so blogPost isnt in every single one of them
-    private String blogPostName;
-    private int blogPostId;
+    private String name;
+    private int id;
     //TODO if we make this so multiple authors can post better to have an Author Table
     // b/c right now the author will always be me so kinda irrelevant
-    private String blogPostAuthor;
-    private String blogPostDescription;
-    private String blogPostContent;
+    private String author;
+    private String description;
+    private String content;
     private String imageName;
     private String imageUrl;
     private Date createdAt;
@@ -22,57 +20,57 @@ public class BlogPost {
 
     }
 
-    public BlogPost(int blogPostId, String blogPostName, String blogPostAuthor, String blogPostDescription,
-                    String blogPostContent, String imageName, String imageUrl, Date createdAt, Date updatedAt) {
-        this.blogPostId = blogPostId;
-        this.blogPostName = blogPostName;
-        this.blogPostAuthor = blogPostAuthor;
-        this.blogPostDescription = blogPostDescription;
-        this.blogPostContent = blogPostContent;
+    public BlogPost(int id, String name, String author, String description,
+                    String content, String imageName, String imageUrl, Date createdAt, Date updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.description = description;
+        this.content = content;
         this.imageName = imageName;
         this.imageUrl = imageUrl;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public int getBlogPostId() {
-        return blogPostId;
+    public int getId() {
+        return id;
     }
 
-    public void setBlogPostId(int blogPostId) {
-        this.blogPostId = blogPostId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getBlogPostName() {
-        return blogPostName;
+    public String getName() {
+        return name;
     }
 
-    public void setBlogPostName(String blogPostName) {
-        this.blogPostName = blogPostName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getBlogPostAuthor() {
-        return blogPostAuthor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setBlogPostAuthor(String blogPostAuthor) {
-        this.blogPostAuthor = blogPostAuthor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getBlogPostDescription() {
-        return blogPostDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBlogPostDescription(String blogPostDescription) {
-        this.blogPostDescription = blogPostDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getBlogPostContent() {
-        return blogPostContent;
+    public String getContent() {
+        return content;
     }
 
-    public void setBlogPostContent(String blogPostContent) {
-        this.blogPostContent = blogPostContent;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getImageName() {

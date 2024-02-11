@@ -2,15 +2,12 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.BlogPost;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.Assert.assertThrows;
@@ -44,7 +41,7 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
     public void getBlogPostById_returns_correct_blogpost_by_id() {
         BlogPost blogPost = sut.getBlogPostById(1);
 
-        Assert.assertEquals("getBlogPostById did not return expected ID", 1, blogPost.getBlogPostId());
+        Assert.assertEquals("getBlogPostById did not return expected ID", 1, blogPost.getId());
     }
 
     @Test
@@ -69,7 +66,7 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
     @Test
     public void addBlogPost_creates_a_new_blogpost() {
         BlogPost blogPost = new BlogPost();
-        blogPost.setBlogPostName("Test Blog Post");
+        blogPost.setName("Test Blog Post");
 
         BlogPost createdBlogPost = sut.addBlogPost(blogPost);
 
@@ -79,47 +76,47 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
     @Test
     public void added_blog_post_is_retrievable() {
         BlogPost blogPost = new BlogPost();
-        blogPost.setBlogPostName("Test Blog Post");
+        blogPost.setName("Test Blog Post");
 
         BlogPost createdBlogPost = sut.addBlogPost(blogPost);
         Assert.assertNotNull("Failed to add a new blog post", createdBlogPost);
 
-        BlogPost retrievedBlogPost = sut.getBlogPostById(createdBlogPost.getBlogPostId());
+        BlogPost retrievedBlogPost = sut.getBlogPostById(createdBlogPost.getId());
         Assert.assertNotNull("Failed to retrieve the added blog post", retrievedBlogPost);
         Assert.assertEquals("Retrieved blog post ID does not match the added blog post ID",
-                createdBlogPost.getBlogPostId(), retrievedBlogPost.getBlogPostId());
+                createdBlogPost.getId(), retrievedBlogPost.getId());
         Assert.assertEquals("Retrieved blog post name does not match the added blog post name",
-                createdBlogPost.getBlogPostName(), retrievedBlogPost.getBlogPostName());
+                createdBlogPost.getName(), retrievedBlogPost.getName());
     }
 
     @Test
     public void updating_blog_post_updates_it() {
         BlogPost blogPost = new BlogPost();
-        blogPost.setBlogPostName("Test Blog Post");
+        blogPost.setName("Test Blog Post");
 
         BlogPost createdBlogPost = sut.addBlogPost(blogPost);
         Assert.assertNotNull("Failed to add a new blog post", createdBlogPost);
 
-        int blogPostId = createdBlogPost.getBlogPostId();
-        createdBlogPost.setBlogPostName("Updated Blog Post Name");
+        int blogPostId = createdBlogPost.getId();
+        createdBlogPost.setName("Updated Blog Post Name");
 
         sut.updateBlogPost(createdBlogPost);
 
         BlogPost updatedBlogPost = sut.getBlogPostById(blogPostId);
         Assert.assertNotNull("Failed to retrieve the updated blog post", updatedBlogPost);
         Assert.assertEquals("Updated blog post name does not match the expected value",
-                "Updated Blog Post Name", updatedBlogPost.getBlogPostName());
+                "Updated Blog Post Name", updatedBlogPost.getName());
     }
 
     @Test
     public void removing_blog_post_deletes_it() {
         BlogPost blogPost = new BlogPost();
-        blogPost.setBlogPostName("Test Blog Post");
+        blogPost.setName("Test Blog Post");
 
         BlogPost createdBlogPost = sut.addBlogPost(blogPost);
         Assert.assertNotNull("Failed to add a new blog post", createdBlogPost);
 
-        int blogPostId = createdBlogPost.getBlogPostId();
+        int blogPostId = createdBlogPost.getId();
         sut.removeBlogPostByBlogPostId(blogPostId);
 
         BlogPost removedBlogPost = sut.getBlogPostById(blogPostId);
