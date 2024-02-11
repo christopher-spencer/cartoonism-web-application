@@ -1,7 +1,7 @@
 <template>
-    <div class="blogpostsview">
+    <div class="blog-posts-view">
         <h1>Blog Post View</h1>
-        <div class="blogpostscomp">
+        <div class="blog-posts-comp">
             <BlogPosts />
         </div>
     </div>
@@ -35,7 +35,7 @@ export default {
       console.log(this.blogPosts);
     }).catch((error) => {
       console.error('Error fetching blog posts:', error);
-      this.isLoading = false; // Make sure to handle errors appropriately
+      this.isLoading = false; 
     });
     }
 }

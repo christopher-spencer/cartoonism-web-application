@@ -1,5 +1,5 @@
 <template>
-    <div class="blogposts">
+    <div class="blog-posts">
         <h1>Blog Posts Component</h1>
         <p v-for="(blogPost, index) in blogPosts" :key="index">
             Greetings from {{blogPost.blogPostName}}!!!
@@ -12,7 +12,7 @@
 import BlogPostsService from '../services/BlogPostsService';
 
 export default {
-    name: "blogposts",
+    name: "blogPosts",
     components: {
     },
     data() {
