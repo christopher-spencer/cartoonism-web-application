@@ -10,6 +10,10 @@ export default {
         return axios.get('/blogposts/${blogPostId}');
     },
 
+    addBlogPost(blogPost) {
+        return axios.post('/blogpost/create-blogpost');
+    },
+
     
 
 
