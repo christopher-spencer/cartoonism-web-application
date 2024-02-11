@@ -104,12 +104,26 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
         createdBlogPost.setBlogPostName("Updated Blog Post Name");
 
         sut.updateBlogPost(createdBlogPost);
-        
+
         BlogPost updatedBlogPost = sut.getBlogPostById(blogPostId);
         Assert.assertNotNull("Failed to retrieve the updated blog post", updatedBlogPost);
         Assert.assertEquals("Updated blog post name does not match the expected value",
                 "Updated Blog Post Name", updatedBlogPost.getBlogPostName());
     }
 
+    @Test
+    public void removing_blog_post_deletes_it() {
+        BlogPost blogPost = new BlogPost();
+        blogPost.setBlogPostName("Test Blog Post");
+
+        BlogPost createdBlogPost = sut.addBlogPost(blogPost);
+        Assert.assertNotNull("Failed to add a new blog post", createdBlogPost);
+
+        int blogPostId = createdBlogPost.getBlogPostId();
+        sut.removeBlogPostByBlogPostId(blogPostId);
+
+        BlogPost removedBlogPost = sut.getBlogPostById(blogPostId);
+        Assert.assertNull("Failed to remove the blog post", removedBlogPost);
+    }
 
 }
