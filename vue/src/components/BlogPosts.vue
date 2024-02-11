@@ -1,9 +1,20 @@
 <template>
     <div class="blog-posts">
         <h1>Blog Posts Component</h1>
-        <p v-for="(blogPost, index) in blogPosts" :key="index">
-            Greetings from {{blogPost.name}}!!!
-        </p>
+        <div class="blog-post" v-for="(blogPost, index) in blogPosts" :key="index">
+            <div class="blog-post-header">
+                <h3> Blog Post Name: {{blogPost.name}}!!! </h3>
+            </div>
+            <div>
+                
+            </div>
+            <div class="blog-post-image">
+
+            </div>
+            <div class="blog-post-content">
+                Blog Post Content: {{blogPost.content}}
+            </div>
+        </div>
     </div>
 </template>
 
@@ -36,4 +47,7 @@ export default {
 </script>
 
 <style scoped>
+.blog-posts {
+    background-color: antiquewhite;
+}
 </style>

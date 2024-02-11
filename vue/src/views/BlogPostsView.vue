@@ -42,4 +42,7 @@ export default {
 </script>
 
 <style scoped>
+.blog-posts-view {
+    background-color: darkcyan;
+}
 </style>
