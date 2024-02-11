@@ -89,6 +89,34 @@ public class JdbcBlogPostDao implements BlogPostDao {
         return newBlogPost;
     }
 
+//    public BlogPost addBlogPostByUserId(int userId, BlogPost blogPost) {
+//
+//    }
+// TODO do I need the updated_at or can I get that to automatically timestamp?
+    public BlogPost updateBlogPost(BlogPost blogPost) {
+        BlogPost updatedBlogPost = null;
+        String sql = "UPDATE blogposts SET blogpost_name = ?, blogpost_author = ?, blogpost_description = ?, " +
+                "blogpost_content = ?, image_name = ?, image_url = ?, updated_at = ? " +
+                "WHERE blogpost_id = ?;";
+
+        try {
+            int numberOfRows = jdbcTemplate.update(sql, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
+                    blogPost.getBlogPostDescription(), blogPost.getBlogPostContent(), blogPost.getImageName(),
+                    blogPost.getImageUrl(), blogPost.getUpdatedAt(), blogPost.getBlogPostId());
+
+            if (numberOfRows == 0) {
+                throw new DaoException("Zero rows affected, expected at least one update.");
+            } else {
+                updatedBlogPost = getBlogPostById(blogPost.getBlogPostId());
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database.", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data Integrity Violation.", e);
+        }
+        return updatedBlogPost;
+    }
+
     private BlogPost mapRowToBlogPost(SqlRowSet rs) {
         BlogPost blogPost = new BlogPost();
 
