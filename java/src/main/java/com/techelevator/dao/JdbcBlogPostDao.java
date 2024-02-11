@@ -117,6 +117,20 @@ public class JdbcBlogPostDao implements BlogPostDao {
         return updatedBlogPost;
     }
 
+    public int removeBlogPostByBlogPostId(int blogPostId) {
+        int numberOfRows = 0;
+        String sql = "DELETE FROM blogposts WHERE blogpost_id = ?;";
+
+        try {
+            numberOfRows = jdbcTemplate.update(sql, blogPostId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data Integrity Violation.", e);
+        }
+        return numberOfRows;
+    }
+
     private BlogPost mapRowToBlogPost(SqlRowSet rs) {
         BlogPost blogPost = new BlogPost();
 
