@@ -45,4 +45,10 @@ export default {
 .blog-posts-view {
     background-color: darkcyan;
 }
+
+h1 {
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}
 </style>
