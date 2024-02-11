@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.BlogPost;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.Assert.assertThrows;
@@ -28,21 +30,21 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
     public void getBlogPostById_returns_blogpost_for_valid_id() {
         BlogPost blogPost = sut.getBlogPostById(1);
 
-        Assert.assertNotNull(blogPost);
+        Assert.assertNotNull("getBlogPostById did not return valid blog post for valid ID", blogPost);
     }
 
     @Test
     public void getBlogPostById_returns_null_for_nonexistent_blogpost() {
         BlogPost blogPost = sut.getBlogPostById(7);
 
-        Assert.assertNull(blogPost);
+        Assert.assertNull("getBlogPostById did not return null for nonexistent blog post", blogPost);
     }
 
     @Test
     public void getBlogPostById_returns_correct_blogpost_by_id() {
         BlogPost blogPost = sut.getBlogPostById(1);
 
-        Assert.assertEquals(1, blogPost.getBlogPostId());
+        Assert.assertEquals("getBlogPostById did not return expected ID", 1, blogPost.getBlogPostId());
     }
 
     @Test
@@ -51,8 +53,8 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
 
         JdbcBlogPostDao daoWithIncorrectDataSource = new JdbcBlogPostDao(incorrectDataSource);
 
-        Assert.assertThrows(DaoException.class, () -> {
-            daoWithIncorrectDataSource.getBlogPostById(1);
+        Assert.assertThrows("getBlogPostById did not throw CannotGetJdbcConnectionException when fed the wrong Datasource", DaoException.class, () -> {
+            daoWithIncorrectDataSource.getBlogPostById( 1);
         });
     }
 
@@ -61,7 +63,7 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
         List<BlogPost> blogPosts = sut.getBlogPosts();
 
         Assert.assertNotNull(blogPosts);
-        Assert.assertFalse(blogPosts.isEmpty());
+        Assert.assertFalse("getBlogPosts did not return all blog posts", blogPosts.isEmpty());
     }
 
     @Test
@@ -71,6 +73,8 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
 
         BlogPost createdBlogPost = sut.addBlogPost(blogPost);
 
-        Assert.assertNotNull(createdBlogPost);
+        Assert.assertNotNull("addBlogPost did not create a new blog post", createdBlogPost);
     }
+
+
 }
