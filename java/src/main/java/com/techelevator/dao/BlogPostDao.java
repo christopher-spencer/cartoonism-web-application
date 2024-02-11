@@ -8,6 +8,8 @@ public interface BlogPostDao {
 
     List<BlogPost> getBlogPosts();
     BlogPost getBlogPostById(int blogPostId);
-
     BlogPost addBlogPost(BlogPost blogPost);
+    
+    BlogPost updateBlogPost(BlogPost blogPost);
+
 }
