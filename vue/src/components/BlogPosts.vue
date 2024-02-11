@@ -1,6 +1,7 @@
 <template>
     <div class="blog-posts">
         <h1>Blog Posts Component</h1>
+        <div class="divider"></div>
         <div class="blog-post" v-for="(blogPost, index) in blogPosts" :key="index">
             <div class="blog-post-header">
                 <h3> Blog Post Name: {{blogPost.name}}!!! </h3>
@@ -24,6 +25,8 @@
             <div class="blog-post-content">
                 Content: {{blogPost.content}}
             </div>
+            <br>
+            <div class="divider"></div>
         </div>
     </div>
 </template>
@@ -59,5 +62,10 @@ export default {
 <style scoped>
 .blog-posts {
     background-color: antiquewhite;
+}
+
+.divider {
+    border-style: double;
+    background-color: blueviolet;
 }
 </style>
