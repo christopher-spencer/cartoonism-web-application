@@ -59,8 +59,8 @@ public class JdbcBlogPostDao implements BlogPostDao {
     public BlogPost addBlogPost(BlogPost blogPost) {
         BlogPost newBlogPost = null;
         String sql = "INSERT into blogposts (blogpost_name, blogpost_author, blogpost_description, post_date, blogpost_content, " +
-                "image_name, image_url, created_at, updated_at) " +
-                "VALUES (?,?,?,?,?,?,?,?,?) " +
+                "image_name, image_url) " +
+                "VALUES (?,?,?,?,?,?,?) " +
                 "RETURNING blogpost_id;";
 
         try {
@@ -72,7 +72,7 @@ public class JdbcBlogPostDao implements BlogPostDao {
             // Used Wrapper first, then unboxed it after checking if it's null to avoid NullPointerException
             Integer newBlogPostIdWrapper = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
                     blogPost.getBlogPostDescription(), blogPost.getPostDate(), blogPost.getBlogPostContent(), blogPost.getImageName(),
-                    blogPost.getImageUrl(), blogPost.getCreatedAt(), blogPost.getUpdatedAt());
+                    blogPost.getImageUrl());
 
             if (newBlogPostIdWrapper != null) {
                 int newBlogPostId = newBlogPostIdWrapper;

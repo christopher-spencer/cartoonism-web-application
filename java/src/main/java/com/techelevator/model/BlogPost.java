@@ -10,6 +10,7 @@ public class BlogPost {
     // b/c right now the author will always be me so kinda irrelevant
     private String blogPostAuthor;
     private String blogPostDescription;
+    //TODO postDate and createdAt are literally the same thing ya dope (remove)
     private Date postDate;
     private String blogPostContent;
     private String imageName;
