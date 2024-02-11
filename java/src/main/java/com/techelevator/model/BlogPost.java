@@ -12,6 +12,7 @@ public class BlogPost {
     private String content;
     private String imageName;
     private String imageUrl;
+    //TODO update date format for data retrieval
     private Date createdAt;
     private Date updatedAt;
 

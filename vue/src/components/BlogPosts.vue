@@ -5,14 +5,20 @@
             <div class="blog-post-header">
                 <h3> Blog Post Name: {{blogPost.name}}!!! </h3>
             </div>
-            <div>
-                
+            <div class="blog-post-author">
+                Author: {{blogPost.author}}
+            </div>
+            <div class="blog-post-created-date">
+                Date: {{blogPost.createdAt}}
+            </div>
+            <div class="blog-post-description">
+                Description: {{blogPost.description}}
             </div>
             <div class="blog-post-image">
 
             </div>
             <div class="blog-post-content">
-                Blog Post Content: {{blogPost.content}}
+                Content: {{blogPost.content}}
             </div>
         </div>
     </div>
