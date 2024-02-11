@@ -96,13 +96,13 @@ public class JdbcBlogPostDao implements BlogPostDao {
     public BlogPost updateBlogPost(BlogPost blogPost) {
         BlogPost updatedBlogPost = null;
         String sql = "UPDATE blogposts SET blogpost_name = ?, blogpost_author = ?, blogpost_description = ?, " +
-                "blogpost_content = ?, image_name = ?, image_url = ?, updated_at = ? " +
+                "blogpost_content = ?, image_name = ?, image_url = ? " +
                 "WHERE blogpost_id = ?;";
 
         try {
             int numberOfRows = jdbcTemplate.update(sql, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
                     blogPost.getBlogPostDescription(), blogPost.getBlogPostContent(), blogPost.getImageName(),
-                    blogPost.getImageUrl(), blogPost.getUpdatedAt(), blogPost.getBlogPostId());
+                    blogPost.getImageUrl(), blogPost.getBlogPostId());
 
             if (numberOfRows == 0) {
                 throw new DaoException("Zero rows affected, expected at least one update.");
