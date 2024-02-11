@@ -19,7 +19,7 @@ export default {
     },
 
     removeBlogPostByBlogPostId(blogPostId) {
-        return axios.delete()'/blogpost/delete/${blogPostId}';
+        return axios.delete('/blogpost/delete/${blogPostId}');
     }
 
 }
