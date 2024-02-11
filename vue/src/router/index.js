@@ -47,7 +47,15 @@ const routes = [
     meta: {
       requiresAuth: false
     }
-  }
+  },
+//  {
+//    path: "/blogposts",
+//    name: "blogposts",
+//    component: BlogPosts,
+//    meta: {
+//        requiresAuth: false
+//    }
+//  }
 ];
 
 // Create the router
