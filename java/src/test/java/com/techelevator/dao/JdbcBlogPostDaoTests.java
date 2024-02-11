@@ -76,5 +76,21 @@ public class JdbcBlogPostDaoTests extends BaseDaoTests {
         Assert.assertNotNull("addBlogPost did not create a new blog post", createdBlogPost);
     }
 
+    @Test
+    public void added_blog_post_is_retrievable() {
+        BlogPost blogPost = new BlogPost();
+        blogPost.setBlogPostName("Test Blog Post");
+
+        BlogPost createdBlogPost = sut.addBlogPost(blogPost);
+        Assert.assertNotNull("Failed to add a new blog post", createdBlogPost);
+
+        BlogPost retrievedBlogPost = sut.getBlogPostById(createdBlogPost.getBlogPostId());
+        Assert.assertNotNull("Failed to retrieve the added blog post", retrievedBlogPost);
+        Assert.assertEquals("Retrieved blog post ID does not match the added blog post ID",
+                createdBlogPost.getBlogPostId(), retrievedBlogPost.getBlogPostId());
+        Assert.assertEquals("Retrieved blog post name does not match the added blog post name",
+                createdBlogPost.getBlogPostName(), retrievedBlogPost.getBlogPostName());
+    }
+
 
 }
