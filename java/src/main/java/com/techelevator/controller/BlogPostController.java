@@ -49,6 +49,11 @@ public class BlogPostController {
         } catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Blog post not found.");
         }
+    }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping(path = "/blogpost/delete/{blogPostId}")
+    public void removeBlogPostByBlogPostId(@PathVariable int blogPostId) {
+        blogPostDao.removeBlogPostByBlogPostId(blogPostId);
     }
 }
