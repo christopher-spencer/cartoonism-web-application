@@ -4,9 +4,9 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class BlogPost {
-    private int blogPostId;
     //TODO update your variable names so blogPost isnt in every single one of them
     private String blogPostName;
+    private int blogPostId;
     //TODO if we make this so multiple authors can post better to have an Author Table
     // b/c right now the author will always be me so kinda irrelevant
     private String blogPostAuthor;
@@ -14,8 +14,6 @@ public class BlogPost {
     private String blogPostContent;
     private String imageName;
     private String imageUrl;
-    //TODO these fields aren't auto filling in Postman even though using
-    // TIMESTAMP DEFAULT CURRENT_TIMESTAMP value in schema, check into this
     private Date createdAt;
     private Date updatedAt;
 
