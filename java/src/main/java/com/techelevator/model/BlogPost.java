@@ -5,13 +5,12 @@ import java.util.Date;
 
 public class BlogPost {
     private int blogPostId;
+    //TODO update your variable names so blogPost isnt in every single one of them
     private String blogPostName;
     //TODO if we make this so multiple authors can post better to have an Author Table
     // b/c right now the author will always be me so kinda irrelevant
     private String blogPostAuthor;
     private String blogPostDescription;
-    //TODO postDate and createdAt are literally the same thing ya dope (remove)
-    private Date postDate;
     private String blogPostContent;
     private String imageName;
     private String imageUrl;
@@ -26,12 +25,11 @@ public class BlogPost {
     }
 
     public BlogPost(int blogPostId, String blogPostName, String blogPostAuthor, String blogPostDescription,
-                    Date postDate, String blogPostContent, String imageName, String imageUrl, Date createdAt, Date updatedAt) {
+                    String blogPostContent, String imageName, String imageUrl, Date createdAt, Date updatedAt) {
         this.blogPostId = blogPostId;
         this.blogPostName = blogPostName;
         this.blogPostAuthor = blogPostAuthor;
         this.blogPostDescription = blogPostDescription;
-        this.postDate = postDate;
         this.blogPostContent = blogPostContent;
         this.imageName = imageName;
         this.imageUrl = imageUrl;
@@ -69,14 +67,6 @@ public class BlogPost {
 
     public void setBlogPostDescription(String blogPostDescription) {
         this.blogPostDescription = blogPostDescription;
-    }
-
-    public Date getPostDate() {
-        return postDate;
-    }
-
-    public void setPostDate(Date postDate) {
-        this.postDate = postDate;
     }
 
     public String getBlogPostContent() {

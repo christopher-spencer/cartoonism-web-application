@@ -27,7 +27,7 @@ public class JdbcBlogPostDao implements BlogPostDao {
 
     public List<BlogPost> getBlogPosts() {
         List<BlogPost> blogPosts = new ArrayList<>();
-        String sql = "SELECT blogpost_id, blogpost_name, blogpost_author, blogpost_description, post_date, blogpost_content, " +
+        String sql = "SELECT blogpost_id, blogpost_name, blogpost_author, blogpost_description, blogpost_content, " +
                 "image_name, image_url, created_at, updated_at " +
                 "FROM blogposts;";
 
@@ -42,7 +42,7 @@ public class JdbcBlogPostDao implements BlogPostDao {
 
     public BlogPost getBlogPostById(int blogPostId) {
         BlogPost blogPost = null;
-        String sql = "SELECT blogpost_id, blogpost_name, blogpost_author, blogpost_description, post_date, blogpost_content, " +
+        String sql = "SELECT blogpost_id, blogpost_name, blogpost_author, blogpost_description, blogpost_content, " +
                 "image_name, image_url, created_at, updated_at " +
                 "FROM blogposts WHERE blogpost_id = ?";
         try {
@@ -58,9 +58,9 @@ public class JdbcBlogPostDao implements BlogPostDao {
 
     public BlogPost addBlogPost(BlogPost blogPost) {
         BlogPost newBlogPost = null;
-        String sql = "INSERT into blogposts (blogpost_name, blogpost_author, blogpost_description, post_date, blogpost_content, " +
+        String sql = "INSERT into blogposts (blogpost_name, blogpost_author, blogpost_description, blogpost_content, " +
                 "image_name, image_url) " +
-                "VALUES (?,?,?,?,?,?,?) " +
+                "VALUES (?,?,?,?,?,?) " +
                 "RETURNING blogpost_id;";
 
         try {
@@ -70,9 +70,9 @@ public class JdbcBlogPostDao implements BlogPostDao {
             // In Java, primitive types are not nullable, meaning they cannot have a null value.
             // However, objects, including instances of wrapper classes like Integer, can be null.
             // Used Wrapper first, then unboxed it after checking if it's null to avoid NullPointerException
-            Integer newBlogPostIdWrapper = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(), blogPost.getBlogPostAuthor(),
-                    blogPost.getBlogPostDescription(), blogPost.getPostDate(), blogPost.getBlogPostContent(), blogPost.getImageName(),
-                    blogPost.getImageUrl());
+            Integer newBlogPostIdWrapper = jdbcTemplate.queryForObject(sql, Integer.class, blogPost.getBlogPostName(),
+                    blogPost.getBlogPostAuthor(), blogPost.getBlogPostDescription(), blogPost.getBlogPostContent(),
+                    blogPost.getImageName(), blogPost.getImageUrl());
 
             if (newBlogPostIdWrapper != null) {
                 int newBlogPostId = newBlogPostIdWrapper;
@@ -138,7 +138,6 @@ public class JdbcBlogPostDao implements BlogPostDao {
         blogPost.setBlogPostName(rs.getString("blogpost_name"));
         blogPost.setBlogPostAuthor(rs.getString("blogpost_author"));
         blogPost.setBlogPostDescription(rs.getString("blogpost_description"));
-        blogPost.setPostDate(rs.getDate("post_date"));
         blogPost.setBlogPostContent(rs.getString("blogpost_content"));
         blogPost.setImageName(rs.getString("image_name"));
         blogPost.setImageUrl(rs.getString("image_url"));
