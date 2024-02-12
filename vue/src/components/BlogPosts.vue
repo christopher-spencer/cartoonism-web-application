@@ -15,7 +15,7 @@ import BlogPostsService from '../services/BlogPostsService';
 import BlogPost from './BlogPost.vue';
 
 export default {
-    name: "blogPosts",
+    name: "BlogPosts",
     components: {
         BlogPost
     },

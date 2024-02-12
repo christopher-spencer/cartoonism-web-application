@@ -27,7 +27,7 @@
 
 <script>
 export default {
-    name: 'blogPost',
+    name: 'BlogPost',
     props: ['blogPost']
 }
 </script>
