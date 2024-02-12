@@ -2,9 +2,6 @@
     <div class="blog-posts">
         <h1>Blog Posts Component</h1>
         <div class="divider"></div>
-        <!-- <div class="blog-post" v-for="(blogPost, index) in blogPosts" :key="index">
-
-        </div> -->
         <div v-for="(post, index) in blogPosts" :key="index" >
             <BlogPost :blogPost="post" />
             <div class="divider"></div>
