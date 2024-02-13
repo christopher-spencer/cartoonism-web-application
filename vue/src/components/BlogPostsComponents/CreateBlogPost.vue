@@ -1,10 +1,27 @@
 <template>
-  <div></div>
+  <div class="create-blog-post" id="create-blog-post">
+
+  </div>
 </template>
 
 <script>
-export default {
+import BlogPostsService from "@/services/BlogPostsService.js"
 
+export default {
+  name: "CreateBlogPost",
+  data() {
+    return {
+      showForm: false,
+      createdBlogPost: {
+
+      }
+    }
+  },
+  computed: {
+    isFormValid() {
+      return this.createdBlogPost.name;
+    }
+  }
 }
 </script>
 
