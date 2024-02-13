@@ -9,8 +9,8 @@
 
 <script>
 
-import BlogPosts from '../components/BlogPosts.vue';
-import BlogPostsService from '../services/BlogPostsService';
+import BlogPosts from '../../components/BlogPostsComponents/BlogPosts.vue';
+import BlogPostsService from '../../services/BlogPostsService';
 
 
 export default {

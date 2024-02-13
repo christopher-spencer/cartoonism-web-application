@@ -11,7 +11,7 @@
 
 <script>
 
-import BlogPostsService from '../services/BlogPostsService';
+import BlogPostsService from '../../services/BlogPostsService';
 import BlogPost from './BlogPost.vue';
 
 export default {

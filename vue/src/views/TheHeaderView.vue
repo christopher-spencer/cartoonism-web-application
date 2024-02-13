@@ -8,6 +8,7 @@
 import TheHeader from '../components/TheHeader.vue'
 
 export default {
+  name: "HeaderView",
   components: {
     TheHeader
   }
