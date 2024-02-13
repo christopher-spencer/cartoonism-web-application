@@ -12,7 +12,8 @@
         <input id="name" type="text" placeholder="Name your Blog Post" v-model="createdBlogPost.name" />
       </div>
       <div class="input-author">
-
+        <label class="input" for="author" >Blog Post Author:</label>
+        <input id="author" type="text" placeholder="Who's the Author?" v-model="createdBlogPost.author" />
       </div>
       <div class="input-description">
 
