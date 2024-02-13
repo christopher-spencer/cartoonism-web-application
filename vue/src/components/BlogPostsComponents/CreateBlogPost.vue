@@ -7,7 +7,10 @@
     </div>
     <br>
     <form id="create-blog-post-form" v-on:submit.prevent="createBlogPost()" v-if="showForm">
-
+      <div class="input-name">
+        <label class="input" for="name" >Blog Post Name:</label>
+        <input id="name" type="text" placeholder="Name your Blog Post" v-model="createdBlogPost.name" />
+      </div>
     </form>
   </div>
 </template>
