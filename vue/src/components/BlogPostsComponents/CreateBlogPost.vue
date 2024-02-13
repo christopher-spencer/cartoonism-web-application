@@ -1,6 +1,14 @@
 <template>
   <div class="create-blog-post" id="create-blog-post">
+    <div class="create-blog-post-button" v-show="!showForm">
+      <a href="#" v-on:click.prevent="showForm = true">
+        <h2 class="create-blog-post-header">Create a New Blog Post:</h2>
+      </a>
+    </div>
+    <br>
+    <form id="create-blog-post-form" v-on:submit.prevent="createBlogPost()" v-if="showForm">
 
+    </form>
   </div>
 </template>
 
