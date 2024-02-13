@@ -3,9 +3,7 @@
     <div class="header" id="header">
       <TheHeaderView />
     </div>
-    <main>
-      <router-view />
-    </main>
+    <router-view />
   </div>
 </template>
 

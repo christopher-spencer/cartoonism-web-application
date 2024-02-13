@@ -1,10 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <DeleteBlogPost/>
+  </div>
 </template>
 
 <script>
-export default {
+import DeleteBlogPost from '../../components/BlogPostsComponents/DeleteBlogPost.vue'
 
+export default {
+  name: "DeleteBlogPostView",
+  components: {
+    DeleteBlogPost
+  }
 }
 </script>
 
