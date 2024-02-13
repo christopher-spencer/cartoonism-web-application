@@ -1,10 +1,26 @@
 <template>
-  <div id="capstone-app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'blogPosts' }">Blog Posts</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+  <div id="cartoonism-app">
+    <div class="header" id="header">
+      <TheHeaderView />
     </div>
-    <router-view />
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
+
+<script>
+import TheHeaderView from './views/TheHeaderView.vue'
+
+export default {
+  components: {
+      TheHeaderView
+    }
+
+}
+</script>
+
+
+<style>
+
+</style>
