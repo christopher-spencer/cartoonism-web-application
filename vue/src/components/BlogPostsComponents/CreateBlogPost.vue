@@ -11,6 +11,14 @@
         <label class="input" for="name" >Blog Post Name:</label>
         <input id="name" type="text" placeholder="Name your Blog Post" v-model="createdBlogPost.name" />
       </div>
+
+      
+
+      <div class="create-blog-post-buttons">
+        <input class="cancel-button" v-on:click.prevent="hideForm" type="button" value="Cancel" />
+        <input class="reset-button" v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
+        <input class="submit-button" type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
+      </div>
     </form>
   </div>
 </template>
