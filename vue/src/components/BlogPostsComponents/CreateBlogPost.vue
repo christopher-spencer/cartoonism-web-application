@@ -38,10 +38,21 @@ export default {
         .then((response) => {
           if (response.status === 201) {
             if (response.data) {
-              this.createBlogPost = response.data;
-            }
+              this.createdBlogPost = response.data;
+              console.log(this.createdBlogPost);
+              // this.$router.push({
+              //   name: "BlogPost",
+              //   params: { id: this.createdBlogPost.id } 
+              // });
+              this.resetForm();
+            } else {
+              console.error("Response data is missing 'id' property:", response.data);
+            } 
+          } else {
+            console.error("Unexpected status code:", response.status);
           }
-        });
+        })
+        .catch((error) => console.error("API Error:", error));
     }
   }
 }
