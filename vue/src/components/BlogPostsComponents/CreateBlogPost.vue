@@ -11,9 +11,21 @@
         <label class="input" for="name" >Blog Post Name:</label>
         <input id="name" type="text" placeholder="Name your Blog Post" v-model="createdBlogPost.name" />
       </div>
+      <div class="input-author">
 
-      
+      </div>
+      <div class="input-description">
 
+      </div>
+      <div class="input-content">
+
+      </div>
+      <div class="input-image-name">
+
+      </div>
+      <div class="input-image-url">
+
+      </div>
       <div class="create-blog-post-buttons">
         <input class="cancel-button" v-on:click.prevent="hideForm" type="button" value="Cancel" />
         <input class="reset-button" v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
@@ -38,9 +50,7 @@ export default {
         description: "",
         content: "",
         imageName: "",
-        imageUrl: "",
-        createdAt: "",
-        updatedAt: ""
+        imageUrl: ""
       }
     }
   },
@@ -81,9 +91,7 @@ export default {
         description: "",
         content: "",
         imageName: "",
-        imageUrl: "",
-        createdAt: "",
-        updatedAt: ""
+        imageUrl: ""
       };
     },
     hideForm() {
