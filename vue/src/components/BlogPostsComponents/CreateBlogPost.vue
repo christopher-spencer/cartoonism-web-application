@@ -53,6 +53,23 @@ export default {
           }
         })
         .catch((error) => console.error("API Error:", error));
+    },
+    resetForm() {
+      this.createdBlogPost = {
+        id: "",
+        name: "",
+        author: "",
+        description: "",
+        content: "",
+        imageName: "",
+        imageUrl: "",
+        createdAt: "",
+        updatedAt: ""
+      };
+    },
+    hideForm() {
+      this.showForm = false;
+      this.resetForm();
     }
   }
 }
