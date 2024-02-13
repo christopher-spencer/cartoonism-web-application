@@ -1,10 +1,15 @@
 <template>
-  <div></div>
+  <div>
+    <TheHeader />
+  </div>
 </template>
 
 <script>
-export default {
+import TheHeader from '../components/TheHeader.vue'
 
+export default {
+  components: 
+    TheHeader
 }
 </script>
 
