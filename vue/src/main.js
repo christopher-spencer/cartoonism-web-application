@@ -7,6 +7,8 @@ import axios from 'axios'
 /* sets the base url for server API communication with axios */
 axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
+console.log('VITE_REMOTE_API value:', import.meta.env.VITE_REMOTE_API);
+
 /*
  * The authorization header is set for axios when you login but what happens when 
  * you come back or the page is refreshed. When that happens you need to check 
