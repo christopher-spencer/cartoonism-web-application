@@ -19,10 +19,12 @@
         <label class="input" for="description">Blog Post Description:</label>
         <input id="description" type="text" placeholder="Write a brief description of the Blog Post" v-model="createdBlogPost.description">
       </div>
+      <!-- UPDATE TO TEXT AREA -->
       <div class="input-content">
         <label class="input" for="content">Blog Post Content:</label>
         <input id="content" type="text" placeholder="Insert Blog Post Content here" v-model="createdBlogPost.content">
       </div>
+      <!-- UPDATE HOW WE'RE GETTING IMAGES -->
       <div class="input-image-name">
         <label class="input" for="image-name">Image Name:</label>
         <input id="image-name" type="text" placeholder="Name your Image" v-model="createdBlogPost.imageName">
