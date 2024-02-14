@@ -16,16 +16,20 @@
         <input id="author" type="text" placeholder="Who's the Author?" v-model="createdBlogPost.author" />
       </div>
       <div class="input-description">
-
+        <label class="input" for="description">Blog Post Description:</label>
+        <input id="description" type="text" placeholder="Write a brief description of the Blog Post" v-model="createdBlogPost.description">
       </div>
       <div class="input-content">
-
+        <label class="input" for="content">Blog Post Content:</label>
+        <input id="content" type="text" placeholder="Insert Blog Post Content here" v-model="createdBlogPost.content">
       </div>
       <div class="input-image-name">
-
+        <label class="input" for="image-name">Image Name:</label>
+        <input id="image-name" type="text" placeholder="Name your Image" v-model="createdBlogPost.imageName">
       </div>
       <div class="input-image-url">
-
+        <label class="input" for="image-url">Image URL:</label>
+        <input id="image-url" type="text" placeholder="Insert a URL to your image" v-model="createdBlogPost.imageUrl">
       </div>
       <div class="create-blog-post-buttons">
         <input class="cancel-button" v-on:click.prevent="hideForm" type="button" value="Cancel" />
