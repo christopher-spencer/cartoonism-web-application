@@ -63,7 +63,9 @@ export default {
   },
   computed: {
     isFormValid() {
-      return this.createdBlogPost.name;
+      return this.createdBlogPost.name && this.createdBlogPost.author 
+        && this.createdBlogPost.description && this.createdBlogPost.content 
+        && this.createdBlogPost.imageName && this.createdBlogPost.imageUrl;
     }
   },
   methods: {
