@@ -22,7 +22,7 @@
       <!-- UPDATE TO TEXT AREA -->
       <div class="input-content">
         <label class="input" for="content">Blog Post Content:</label>
-        <input id="content" type="text" placeholder="Insert Blog Post Content here" v-model="createdBlogPost.content">
+        <textarea id="content" type="text" placeholder="Insert Blog Post Content here" v-model="createdBlogPost.content" ></textarea>
       </div>
       <!-- UPDATE HOW WE'RE GETTING IMAGES -->
       <div class="input-image-name">
@@ -72,7 +72,11 @@ export default {
     createBlogPost() {
       this.id = this.$store.state.user.id;
 
-      BlogPostsService.addBlogPost(this.createBlogPost)
+      if (!this.isFormValid) {
+        return; 
+      }
+
+      BlogPostsService.addBlogPost(this.createdBlogPost)
         .then((response) => {
           if (response.status === 201) {
             if (response.data) {
