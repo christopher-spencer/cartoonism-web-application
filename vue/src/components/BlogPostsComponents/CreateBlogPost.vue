@@ -82,10 +82,10 @@ export default {
             if (response.data) {
               this.createdBlogPost = response.data;
               console.log(this.createdBlogPost);
-              // this.$router.push({
-              //   name: "BlogPost",
-              //   params: { id: this.createdBlogPost.id } 
-              // });
+              this.$router.push({
+                name: "blogPost",
+                params: { id: this.createdBlogPost.id } 
+              });
               this.resetForm();
             } else {
               console.error("Response data is missing 'id' property:", response.data);

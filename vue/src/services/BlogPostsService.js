@@ -11,7 +11,7 @@ export default {
     },
 
     addBlogPost(blogPost) {
-        return axios.post('/blogpost/create-blogpost');
+        return axios.post('/blogpost/create-blogpost', blogPost);
     },
 
     updateBlogPost(blogPost, blogPostId) {

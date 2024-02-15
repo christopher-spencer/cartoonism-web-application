@@ -1,6 +1,9 @@
 <template>
     <div class="blog-posts-view">
         <h1>Blog Post View</h1>
+        <div>
+            <CreateBlogPostView/>
+        </div>
         <div class="blog-posts-comp">
             <BlogPosts />
         </div>
@@ -11,12 +14,14 @@
 
 import BlogPosts from '../../components/BlogPostsComponents/BlogPosts.vue';
 import BlogPostsService from '../../services/BlogPostsService';
+import CreateBlogPostView from './CreateBlogPostView.vue';
 
 
 export default {
     name: "BlogPostsView",
     components: {
-        BlogPosts
+        BlogPosts,
+        CreateBlogPostView
     },
     data() {
         return {
