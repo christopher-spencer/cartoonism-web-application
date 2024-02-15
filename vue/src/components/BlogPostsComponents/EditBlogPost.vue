@@ -22,6 +22,18 @@ export default {
         imageUrl: ''
       }
     };
+  },
+  computed: {
+    isFormValid() {
+      return (
+        this.editedBlogPost.name && this.editedBlogPost.author 
+        && this.editedBlogPost.description && this.editedBlogPost.content
+        && this.editedBlogPost.imageName && this.editedBlogPost.imageUrl
+      );
+    }
+  },
+  methods: {
+    
   }
 }
 </script>
