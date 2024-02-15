@@ -8,9 +8,10 @@
 import CreateBlogPost from '../../components/BlogPostsComponents/CreateBlogPost.vue'
 
 export default {
-    components: {
+  name: "CreateBlogPostView",
+  components: {
         CreateBlogPost
-    }
+  }
 }
 </script>
 

@@ -7,9 +7,10 @@
   <script>
   import BlogPost from '../../components/BlogPostsComponents/BlogPost.vue';
   export default {
-      components: {
+    name: "BlogPostView",
+    components: {
         BlogPost
-      }
+    }
   }
   </script>
   
