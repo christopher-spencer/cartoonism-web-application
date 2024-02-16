@@ -1,7 +1,9 @@
 <template>
   <div id="edit-blog-post">
-    <div class="edit-blog-post-form">
-
+    <div class="edit-form-button" v-show="!showForm">
+      <a href="#" v-on:click.prevent="showForm = true">
+        <h2 class="edit-header">Edit Blog Post:</h2>
+      </a>
     </div>
   </div>
 </template>
@@ -54,7 +56,7 @@ export default {
           if (response.status === 200) {
             if (response.data) {
               this.editBlogPost = response.data;
-              // this.$store.commit("UPDATE_BLOGPOST", this.editedBlogPost);
+              // this.$store.commit("UPDATE_BLOG_POST", this.editedBlogPost);
             } else {
               console.error("Response data is missing 'id' property:", response.data);
             }
