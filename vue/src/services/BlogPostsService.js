@@ -7,7 +7,7 @@ export default {
     },
 
     getBlogPost(blogPostId) {
-        return axios.get('/blogposts/${blogPostId}');
+        return axios.get(`/blogposts/${blogPostId}`);
     },
 
     addBlogPost(blogPost) {
@@ -15,11 +15,11 @@ export default {
     },
 
     updateBlogPost(blogPost, blogPostId) {
-        return axios.put('/update-blogpost/${blogPost.blogPostId}', blogPost);
+        return axios.put(`/update-blogpost/${blogPost.blogPostId}`, blogPost);
     },
 
     removeBlogPostByBlogPostId(blogPostId) {
-        return axios.delete('/blogpost/delete/${blogPostId}');
+        return axios.delete(`/blogpost/delete/${blogPostId}`);
     }
 
 }
