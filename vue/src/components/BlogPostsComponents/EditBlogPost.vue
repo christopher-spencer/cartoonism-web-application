@@ -88,11 +88,11 @@ export default {
         });
     }, 
     editBlogPost() {
-      BlogPostsService.updateBlogPost(this.editedBlogPost.id)
+      BlogPostsService.updateBlogPost(this.editedBlogPost, this.editedBlogPost.id)
         .then((response) => {
           if (response.status === 200) {
             if (response.data) {
-              this.editBlogPost = response.data;
+              this.editedBlogPost = response.data;
               // this.$store.commit("UPDATE_BLOG_POST", this.editedBlogPost);
             } else {
               console.error("Response data is missing 'id' property:", response.data);
