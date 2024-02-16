@@ -3,19 +3,26 @@
       <!-- Insert Loading Indicator or Message -->
       <p>Loading...</p>
     </div>
-    <div v-else>
+    <div class="blog-post-container" v-else>
+      <div class="blog-post">
         <BlogPost :blogPost="blogPost"/>
+      </div>
+      <div class="edit-blog-post-button">
+        <EditBlogPostView/>
+      </div>
     </div>
   </template>
   
   <script>
   import BlogPost from '../../components/BlogPostsComponents/BlogPost.vue';
   import BlogPostsService from '../../services/BlogPostsService';
+  import EditBlogPostView from './EditBlogPostView.vue';
 
   export default {
     name: "BlogPostView",
     components: {
-        BlogPost
+        BlogPost,
+        EditBlogPostView
     },
     data() {
       return {
