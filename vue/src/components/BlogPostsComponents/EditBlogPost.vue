@@ -5,6 +5,39 @@
         <h2 class="edit-header">Edit Blog Post:</h2>
       </a>
     </div>
+    <br>
+    <form id="edit-blog-post-form" v-on:submit.prevent="editBlogPost()" v-if="showForm">
+
+      <div class="edit-inputs-container">
+        <div class="edit-input">
+
+        </div>
+        <div class="edit-input">
+
+        </div>
+        <div class="edit-input">
+
+        </div>
+        <div class="edit-input">
+
+        </div>
+        <div class="edit-input">
+
+        </div>
+        <div class="edit-input">
+
+        </div>
+        <div class="edit-input">
+
+        </div>
+      </div>
+
+      <div class="edit-form-submission-buttons">
+        <input class="cancel-button" v-on:click.prevent="hideForm" type="button" value="Cancel" />
+        <input class="reset-button" v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
+        <button class="submit-button" type="submit">Update</button>
+      </div>
+    </form>
   </div>
 </template>
 
