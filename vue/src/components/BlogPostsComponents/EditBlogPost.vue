@@ -10,25 +10,28 @@
 
       <div class="edit-inputs-container">
         <div class="edit-input">
-
+          <label class="input-label" for="name">Blog Post Name:</label>
+          <input id="name" type="text" class="input-field" v-model="editedBlogPost.name" />
         </div>
         <div class="edit-input">
-
+          <label class="input-label" for="author">Blog Post Author:</label>
+          <input id="author" type="text" class="input-field" v-model="editedBlogPost.author" />
         </div>
         <div class="edit-input">
-
+          <label class="input-label" for="description">Blog Post Description:</label>
+          <input id="description" type="text" class="input-field" v-model="editedBlogPost.description" />
         </div>
         <div class="edit-input">
-
+          <label class="input-label" for="content">Blog Post Content:</label>
+          <input id="content" type="textarea" class="input-field" v-model="editedBlogPost.content" />
         </div>
         <div class="edit-input">
-
+          <label class="input-label" for="imageName">Blog Post Image Name:</label>
+          <input id="imageName" type="text" class="input-field" v-model="editedBlogPost.imageName" />
         </div>
         <div class="edit-input">
-
-        </div>
-        <div class="edit-input">
-
+          <label class="input-label" for="imageUrl">Blog Post Image URL:</label>
+          <input id="imageUrl" type="text" class="input-field" v-model="editedBlogPost.imageUrl" />
         </div>
       </div>
 
@@ -37,6 +40,7 @@
         <input class="reset-button" v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
         <button class="submit-button" type="submit">Update</button>
       </div>
+
     </form>
   </div>
 </template>
