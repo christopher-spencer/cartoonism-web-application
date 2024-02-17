@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import BlogPostsService from '../../services/BlogPostsService';
+import BlogPostsService from '@/services/BlogPostsService';
 
 export default {
   name: "edit-blog-post",
@@ -93,7 +93,8 @@ export default {
           if (response.status === 200) {
             if (response.data) {
               this.editedBlogPost = response.data;
-              // this.$store.commit("UPDATE_BLOG_POST", this.editedBlogPost);
+              this.$store.commit("UPDATE_BLOG_POST", this.editedBlogPost);
+              //this.hideForm();
             } else {
               console.error("Response data is missing 'id' property:", response.data);
             }
@@ -121,6 +122,7 @@ export default {
   },
   created() {
     this.getBlogPostData(this.$route.params.id);
+    console.log('ID:', this.$route.params.id);
   }
 }
 </script>

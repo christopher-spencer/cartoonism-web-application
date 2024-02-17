@@ -15,7 +15,7 @@ export default {
     },
 
     updateBlogPost(blogPost, blogPostId) {
-        return axios.put(`/update-blogpost/${blogPost.blogPostId}`, blogPost);
+        return axios.put(`/update-blogpost/${blogPostId}`, blogPost);
     },
 
     removeBlogPostByBlogPostId(blogPostId) {
