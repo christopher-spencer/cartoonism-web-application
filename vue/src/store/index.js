@@ -1,6 +1,5 @@
 import { createStore as _createStore } from 'vuex';
 import axios from 'axios';
-import { stat } from 'fs';
 
 export function createStore(currentToken, currentUser) {
   let store = _createStore({

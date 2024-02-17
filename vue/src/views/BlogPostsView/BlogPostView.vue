@@ -11,7 +11,7 @@
         <EditBlogPostView/>
       </div>
       <div>
-        
+        <DeleteBlogPostView/>
       </div>
       <div class="return-to-blog-posts-button">
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'blogPosts' }">
@@ -27,12 +27,14 @@
   import BlogPost from '../../components/BlogPostsComponents/BlogPost.vue';
   import BlogPostsService from '../../services/BlogPostsService';
   import EditBlogPostView from './EditBlogPostView.vue';
+   import DeleteBlogPostView from './DeleteBlogPostView.vue';
 
   export default {
     name: "BlogPostView",
     components: {
         BlogPost,
-        EditBlogPostView
+        EditBlogPostView,
+        DeleteBlogPostView
     },
     data() {
       return {
