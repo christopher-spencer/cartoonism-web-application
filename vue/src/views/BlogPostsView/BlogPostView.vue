@@ -10,6 +10,9 @@
       <div class="edit-blog-post-button">
         <EditBlogPostView/>
       </div>
+      <div>
+        
+      </div>
       <div class="return-to-blog-posts-button">
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'blogPosts' }">
           <div>
