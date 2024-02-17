@@ -36,7 +36,7 @@
       </div>
 
       <div class="edit-form-submission-buttons">
-        <input class="cancel-button" v-on:click.prevent="hideForm" type="button" value="Cancel" />
+        <input class="cancel-button" v-on:click.prevent="hideForm()" type="button" value="Cancel" />
         <input class="reset-button" v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
         <button class="submit-button" type="submit">Update</button>
       </div>
@@ -90,6 +90,8 @@ export default {
     editBlogPost() {
       BlogPostsService.updateBlogPost(this.editedBlogPost, this.editedBlogPost.id)
         .then((response) => {
+          console.log("Updated data:", response.data); // Log updated data
+
           if (response.status === 200) {
             if (response.data) {
               this.editedBlogPost = response.data;
