@@ -6,7 +6,7 @@
       </a>
     </div>
     <br>
-    <form id="edit-blog-post-form" v-on:submit.prevent="editBlogPost()" v-if="showForm">
+    <form id="edit-blog-post-form" v-on:submit="editBlogPost()" v-if="showForm">
 
       <div class="edit-inputs-container">
         <div class="edit-input">

@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="blog-post-header">
-       <h3> Blog Post Name: {{blogPost.name}}!!! </h3>
+        <router-link :to="{ name: 'blogPost' , params: { id: blogPost.id } }">
+            <h3> Blog Post Name: {{blogPost.name}}!!! </h3>
+        </router-link>
     </div>
     <div class="blog-post-author">
        Author: {{blogPost.author}}
