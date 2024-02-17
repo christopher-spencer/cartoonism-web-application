@@ -1,10 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <TheFooter/>
+  </div>
 </template>
 
 <script>
-export default {
+import TheFooter from '../components/TheFooter.vue'
 
+export default {
+  name: "FooterView",
+  components: {
+    TheFooter
+  }
 }
 </script>
 
