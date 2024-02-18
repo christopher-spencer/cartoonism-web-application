@@ -91,7 +91,7 @@ public class JdbcBlogPostDao implements BlogPostDao {
 //    public BlogPost addBlogPostByUserId(int userId, BlogPost blogPost) {
 //
 //    }
-// TODO do I need the updated_at or can I get that to automatically timestamp?
+    
     public BlogPost updateBlogPost(BlogPost blogPost) {
         BlogPost updatedBlogPost = null;
         String sql = "UPDATE blogposts SET blogpost_name = ?, blogpost_author = ?, blogpost_description = ?, " +
