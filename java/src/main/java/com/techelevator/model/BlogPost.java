@@ -7,6 +7,7 @@ public class BlogPost {
     private int id;
     //TODO if we make this so multiple authors can post better to have an Author Table
     // b/c right now the author will always be me so kinda irrelevant
+    // TODO get author from About Me dynamically(?)
     private String author;
     private String description;
     private String content;
