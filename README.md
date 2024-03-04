@@ -1,6 +1,6 @@
 # Cartoonism Web Application
 
-* A full-stack Java application, featuring JavaScript via Vue.js on the front end, which dynamically accesses/modifies information in the PostgreSQL database based on selection.
-* Currently features dynamic blog posting capabilities, with plans for in depth design and some fun, surprise features in the works.
+* A full-stack Java application, featuring JavaScript via Vue.js on the front end, RESTful APIs, and a PostgreSQL database.
+* Currently showcases dynamic blog posting capabilities, with plans designed for a variety of dynamic features, such as building and modifying comics architecture, creating your own characters, and interacting with a cartoon chatbot.
 
-(**Tools:** Java, JavaScript, CSS, HTML, Vue.js, IntelliJ, Postman, VSCode, Unit Testing (JUnit), Integration Testing, Spring Boot, PostgreSQL, MVC, DAO, REST APIs, Git)
+(**Tools:** Java, JavaScript, CSS, HTML, Vue.js, IntelliJ, Postman, Visual Studio Code, Git, JUnit (Unit Testing), Integration Testing, Spring Boot, PostgreSQL, MVC, DAO, REST APIs)
